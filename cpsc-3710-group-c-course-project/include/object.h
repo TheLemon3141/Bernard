@@ -58,8 +58,7 @@ void drawobject(GLuint object) {
     GL_UNSIGNED_BYTE, BUFFER_OFFSET(0)) ;
 }
 
-
-// initializes the thingy
+// initializes the program
 void init(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     //glLoadIdentity() ;
