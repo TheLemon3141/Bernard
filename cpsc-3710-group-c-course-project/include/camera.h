@@ -14,22 +14,20 @@ float orthoZoom = 1.0f;
 float perspectiveZoom = 1.0f;
 
 void setCamera(glm::vec3 eye, glm::vec3 look, glm::vec3 up) {
-        glMatrixMode(GL_MODELVIEW) ; //instead of GL_MODELVIEW?
+        glMatrixMode(GL_MODELVIEW);
         //y axis angle, aspect ratio, near clip, far clip
         gluPerspective(0, 1, 0, 15);
-        //compute r, u, l vectors
+
         glm::vec3 l = glm::normalize(look - eye);
         glm::vec3 r = glm::normalize(glm::cross(look, up));
         glm::vec3 u = glm::cross(r, l);
-        //construct 4x4 ModelView matrix
-        //glm::mat4 myMatrix = {
+        
         float myMatrix[16] = {
             r[0], r[1], r[2], (glm::dot(-r, eye)),
             u[0], u[1], u[2], (glm::dot(-u, eye)),
             -l[0], -l[1], -l[2], (glm::dot(l, eye)),
             0, 0, 0, 1
         };
-        //applyvia glLoadMatrixf();
         glLoadMatrixf(myMatrix);
         glutPostRedisplay() ;
 }
@@ -45,6 +43,7 @@ void setCameraPosition(float camerax, float cameray, float cameraz) {
         lightStuff();
 }
 
+//Sets camera at a normal to point x, y, z at a scale factor of zoom.
 void setCameraNormal(float x, float y, float z, float zoom) {
     glm::vec3 lookAtPoint = {x, y, z};
     glm::vec3 normal = glm::normalize(lookAtPoint);
@@ -56,7 +55,7 @@ void setCameraNormal(float x, float y, float z, float zoom) {
 }
 
 void newPerspective(float angle) {
-        glMatrixMode(GL_MODELVIEW); //is GL_MODELVIEW the one we want?
+        glMatrixMode(GL_MODELVIEW);
         gluPerspective(angle, 1, 0, 15);
         glLoadIdentity();
         //eyex eyey eyez centerx centery centerz upx upy upz
