@@ -5,26 +5,25 @@
 #include "Floor.h"
 #include <vector>
 
-enum {FLOOR1, FLOOR2, FLOOR3, ARM1, ARM2, BODY, LEG1, LEG2, HEAD} ; // For objects, for the floor
+enum {FLOOR1, FLOOR2, FLOOR3, ARM1, ARM2, BODY, LEG1, LEG2, HEAD} ; // Object names
 //numobjects is in object.h
 
 const int numfloors = 3;
 unsigned currentfloor = 1;  //choose 0, 1, or 2
 
-    glm::vec3 pink = {1.0, 0, 0.7};
-    glm::vec3 brown = {0.5, 0.3, 0};
-    glm::vec3 white = {1.0, 1.0, 1.0};
-
-    Floor floor1(FLOOR1, 0, -.28, -0.5, 1, 1, white);
-    Floor floor2(FLOOR2, 0, -.28, -1, 2, 2, pink);
-    Floor floor3(FLOOR3, 0, -.28, -1, 0.5, 3, brown);
-
-//    Floor(float centerx, float centery, float centerz, float l, float w) {
+//Colours
+glm::vec3 pink = {1.0, 0, 0.7};
+glm::vec3 brown = {0.5, 0.3, 0};
+glm::vec3 white = {1.0, 1.0, 1.0};
 
 //global list of floors
-/*
+//    Floor(float centerx, float centery, float centerz, float l, float w);
+Floor floor1(FLOOR1, 0, -.28, -0.5, 1, 1, white);
+Floor floor2(FLOOR2, 0, -.28, -1, 2, 2, pink);
+Floor floor3(FLOOR3, 0, -.28, -1, 0.5, 3, brown);
 
-// FLOOR SPECIFICATIONS /////////
+/*
+// OLD FLOOR SPECIFICATIONS /////////
 const GLfloat floorverts[4][3] = {  //floor vertices
     {0.5, 1, -0.5}, 
     {-0.5, 1, -0.5}, 
