@@ -6,7 +6,6 @@
 //#include "shaders.h"
 GLuint vertexshader, fragmentshader, shaderprogram ; // shaders
 
-//library for 3d mathematics
 #include <glm/glm.hpp>
 #include <vector>
 #include "include/mouse.h"
@@ -15,7 +14,6 @@ GLuint vertexshader, fragmentshader, shaderprogram ; // shaders
 #include "include/Cylinder.h"
 #include "include/Floor.h"
 #include "include/object.h"
-//#include <iostream>
 
 using namespace glm;
 using namespace std;
@@ -27,7 +25,6 @@ void display(void) {
     // Initialization in init() for Drawing
     glGenBuffers(numperobj*numobjects, buffers) ;
     //initialize the objects and then draw them
-
 /*
     initobject(FLOOR, (GLfloat *) floorverts, sizeof(floorverts),
     (GLfloat *) floorcol, sizeof (floorcol), (GLubyte *) floorinds,
@@ -37,20 +34,6 @@ void display(void) {
     sizeof(floorverts2), (GLfloat *) floorcol2, sizeof (floorcol2),
     (GLubyte *) floorinds2, sizeof (floorinds2), GL_POLYGON) ;
 */
-
-// load image data form a file using stb_image.h or something else
-    GLuint floorTextures[3];
-    glCreateTextures(GL_TEXTURE_2D, 3, floorTextures);
-    glBindTexture(GL_TEXTURE_2D, floorTextures[currentfloor]);
-//^generate and bind
-//upload image data to GPU using glTexImage2d
-//set texure params-- filtering (gl_linear, gl_nearest) or wrapping (gl_repeat, gl_clamp_to_edge) using glTexParameteri
-//define vertex data with both position and texture coords normally in range 0, 1
-//create and fill a vbo with that data^
-//use a vao (vertex array object) to manage attribute pointers
-//write shaders to handle texture lookup
-//in render loop, bind the texture and the VAO, use the shader program, and issue a drawing command like glDrawArrays
-// googled "apply a texture to a polygon opengl v3"
 
     Floor* floorlist[3];
     floorlist[0] = (&floor1);
@@ -83,7 +66,6 @@ int main(int argc, char** argv)
     glutInit(&argc, argv);  //initializes GLUT library
 
     // Requests the type of buffers (Single, RGB).
-    // Think about what buffers you would need...
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);    //display mode. Default.
 
     glutInitWindowSize(500, 500);       //window size
