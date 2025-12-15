@@ -18,7 +18,7 @@ class Floor {
         length = l;
         width = w;
 
-        //z coordinates
+        //x coordinates
         vert[0][0] = center[0] - length/2;
         vert[1][0] = center[0] - length/2;
         vert[2][0] = center[0] + length/2;
@@ -51,7 +51,6 @@ void initfloor(Floor* f) {
     initobject(f->object, (GLfloat *) f->vert,
     sizeof(f->vert), (GLfloat *) f->col, sizeof (f->col),
     (GLubyte *) f->inds, sizeof (f->inds), GL_POLYGON);
-    //cout << "Floor object initialized" << endl;
 }
 
 #endif
