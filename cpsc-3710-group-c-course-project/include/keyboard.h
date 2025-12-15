@@ -34,17 +34,17 @@ void keyboard (unsigned char key, int x, int y)
             setPerspectiveCamera();
             break;
         case '=': // zoom in
-        if(usePerspective)
-            perspectiveZoom *= 0.9f;  // closer
-        else
-            orthoZoom *= 0.9f;        // smaller ortho box
-        break;
+            if(usePerspective)
+                perspectiveZoom *= 0.9f;  // closer
+            else
+                orthoZoom *= 0.9f;        // smaller ortho box
+            break;
         case '-': // zoom out
-        if(usePerspective)
-            perspectiveZoom *= 1.1f;  // farther
-        else
-            orthoZoom *= 1.1f;        // larger ortho box
-        break;
+            if(usePerspective)
+                perspectiveZoom *= 1.1f;  // farther
+            else
+                orthoZoom *= 1.1f;        // larger ortho box
+            break;
         case 'a': //a key to scroll left through list of floors
             if (currentfloor == 0) currentfloor = numfloors - 1;
             else currentfloor = currentfloor - 1;
